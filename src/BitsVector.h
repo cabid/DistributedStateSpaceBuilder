@@ -1,0 +1,73 @@
+// BitsVector.h: interface for the BitsVector class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#if !defined(AFX_BITSVECTOR_H__FCB7EB69_05AC_41F8_9A21_7807D91657A0__INCLUDED_)
+#define AFX_BITSVECTOR_H__FCB7EB69_05AC_41F8_9A21_7807D91657A0__INCLUDED_
+
+#if _MSC_VER > 1000
+#pragma once
+
+#endif // _MSC_VER > 1000
+#include <vector>
+using namespace std;
+typedef unsigned char Octet;
+typedef vector<Octet> VecCar ;
+class BitsVector
+{
+public:
+    int index; // Used in Tarjan algorithm
+    int lowlink; // Used in Tarjan algorithm
+    bool onstack; // Used in Tarjan algorithm
+	void setVide(bool v);
+	inline bool isVide() const {
+		return m_vide;
+	}
+
+	BitsVector & operator =(const BitsVector &newvec);
+	BitsVector(const BitsVector &value);
+	Octet get8BitsValue(const int index);
+	bool operator ==(const  BitsVector &newvec) const
+	{
+		if (this->m_vide==true && newvec.m_vide==true) {
+			return true;
+		}
+		else if ((this->m_vide) == (!newvec.m_vide)) return false;
+
+		if (m_vector.size()!=newvec.m_vector.size()) return false;
+		for (unsigned int i=0;i<m_vector.size();i++)
+			if (m_vector.at(i)!=newvec.m_vector.at(i)) return false;
+		return true;
+	}
+	bool operator ==(const  BitsVector *newvec) const
+	{
+		if (this->m_vide==true && newvec->m_vide==true) {
+			return true;
+		}
+		else if ((this->m_vide) == (!newvec->m_vide)) return false;
+
+		if (m_vector.size()!=newvec->m_vector.size()) return false;
+		for (unsigned int i=0;i<m_vector.size();i++)
+			if (m_vector.at(i)!=newvec->m_vector.at(i)) return false;
+		return true;
+	}
+	void add8BitsValue(const Octet val);
+	BitsVector();
+	virtual ~BitsVector();
+private:
+	bool m_vide;
+	VecCar m_vector;
+
+};
+
+inline void BitsVector::setVide(bool v)
+ {
+ 	m_vide=v;
+ }
+
+
+
+#define Marquage BitsVector
+typedef vector<BitsVector> MarquageGlob;
+
+#endif // !defined(AFX_BITSVECTOR_H__FCB7EB69_05AC_41F8_9A21_7807D91657A0__INCLUDED_)

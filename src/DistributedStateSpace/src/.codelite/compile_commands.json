@@ -1,0 +1,9 @@
+[{
+  "directory": "/home/chiheb/ProjectCPP/DistributedStateSpace/src",
+  "command": "/usr/bin/x86_64-linux-gnu-g++ -g -W -fexceptions -DWIN32 -D_DEBUG -D_CONSOLE -D_MBCS -I. -IDSS -Iinclude -MG -MP -MT./Debug/src_RElement_dss.cpp.o -MF./Debug/src_RElement_dss.cpp.o.d -MM src/RElement_dss.cpp",
+  "file": "/home/chiheb/ProjectCPP/DistributedStateSpace/src/src/RElement_dss.cpp"
+ }, {
+  "directory": "/home/chiheb/ProjectCPP/DistributedStateSpace/src",
+  "command": "/usr/bin/x86_64-linux-gnu-g++ -c /home/chiheb/ProjectCPP/DistributedStateSpace/src/src/RElement_dss.cpp -g -W -fexceptions -DWIN32 -D_DEBUG -D_CONSOLE -D_MBCS -o ./Debug/src_RElement_dss.cpp.o -I. -IDSS -Iinclude",
+  "file": "/home/chiheb/ProjectCPP/DistributedStateSpace/src/src/RElement_dss.cpp"
+ }]
