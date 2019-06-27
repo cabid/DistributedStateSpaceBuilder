@@ -5,11 +5,11 @@
 #if !defined(AFX_ARCSG_H__9424E6A1_C7B0_43C9_8388_E0925890B9A0__INCLUDED_)
 #define AFX_ARCSG_H__9424E6A1_C7B0_43C9_8388_E0925890B9A0__INCLUDED_
 
-#include "MarquageGlobal.h"	// Added by ClassView
+#include "NodeSG.h"	// Added by ClassView
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-#include "MarquageGlobal.h"
+#include "NodeSG.h"
 #include "NodeSGSimplified.h"
 #include "Fusion.h"
 class NodeSG;

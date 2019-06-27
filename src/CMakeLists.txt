@@ -103,8 +103,8 @@ add_executable(distributedstatespace main.cpp
     InternalArc.h    
     GrapheSync.cpp
     GrapheSync.h
-    MarquageGlobal.cpp
-    MarquageGlobal.h
+    NodeSG.cpp
+    NodeSG.h
     ArcSync.cpp
     ArcSync.h
     Element.cpp

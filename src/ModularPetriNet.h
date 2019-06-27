@@ -13,7 +13,7 @@
 #include "Element_dss.h"
 #include "ModularSpace.h"
 #include "PetriNet.h"
-#include "MarquageGlobal.h"
+#include "NodeSG.h"
 #include "NodeSGSimplified.h"
 #include "GrapheSync.h"
 #include "Operations.h"
