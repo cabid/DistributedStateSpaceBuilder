@@ -52,8 +52,8 @@ add_executable(distributedstatespace main.cpp
     PileRed.h
     PilePhase1.cpp
     PilePhase1.h
-    Node1.cpp
-    Node1.h
+    Node.cpp
+    Node.h
     Place.cpp
     Place.h
     Fils.cpp
@@ -93,8 +93,7 @@ add_executable(distributedstatespace main.cpp
     MetaState.cpp
     MetaState.h
     StateGraph.cpp
-    StateGraph.h
-    StdAfx.h
+    StateGraph.h    
     RElement_dss.cpp
     RElement_dss.h
     SCC.cpp

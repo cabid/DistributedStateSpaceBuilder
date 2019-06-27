@@ -4,7 +4,7 @@
 
 #if !defined(AFX_NODESGSIMPLIFIED_H__C0E45B46_BE36_4B2F_A970_B674E7C897CF__INCLUDED_)
 #define AFX_NODESGSIMPLIFIED_H__C0E45B46_BE36_4B2F_A970_B674E7C897CF__INCLUDED_
-#include"StdAfx.h"
+
 #include "Marking.h"	// Added by ClassView
 #if _MSC_VER > 1000
 #pragma once

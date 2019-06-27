@@ -10,7 +10,7 @@
 #endif // _MSC_VER > 1000
 
 
-#include "Node1.h"
+#include "Node.h"
 #include "Place.h"
 #include "PetriNet.h"	// Added by ClassView
 

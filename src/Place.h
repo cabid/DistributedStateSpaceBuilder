@@ -9,7 +9,7 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
-#include "Node1.h"
+#include "Node.h"
 
 class Place : public Node  {
 public:
