@@ -1,6 +1,6 @@
 # DSS-Builder
 
-Distributed State Space Builder
+Distributed State Space Builder is a distributed verification implementation based on modular Petri nets. It allows to build a distributed state space instead of the flat state space. A property that concerns one module can be checked by only exploring the graph that is associated with one module.
 
 
 
@@ -10,7 +10,7 @@ Distributed State Space Builder
 ## Building
 
 
-- `git clone --recursive https://github.com/cabid/DistributedStateSpace.git
+- `git clone --recursive https://github.com/cabid/DistributedStateSpaceBuilder.git
 
 - `mkdir build`
 
