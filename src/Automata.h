@@ -5,7 +5,7 @@
 #if !defined(AFX_AUTOMATA_H__937453EB_86E8_4040_AE59_7FF2AC562346__INCLUDED_)
 #define AFX_AUTOMATA_H__937453EB_86E8_4040_AE59_7FF2AC562346__INCLUDED_
 #include "Transition.h"
-#include "BitsVector.h"	// Added by ClassView
+#include "Marking.h"	// Added by ClassView
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
@@ -32,9 +32,9 @@ public:
 	Arc* getArc(const int index);
 	ListMarquage* getNode(const int index);
 	ListMarqLoc getListMarquages();
-	bool isMarquageExist(Marquage* marq);
-	vector<ListMarquage*> getNodesContainMarquage(Marquage* marq);
-	void addArc(Marquage source,const string libelle_arc,Marquage dest);
+	bool isMarquageExist(Marking* marq);
+	vector<ListMarquage*> getNodesContainMarquage(Marking* marq);
+	void addArc(Marking source,const string libelle_arc,Marking dest);
 	void addArc(ListMarquage* marq1,const string trans,ListMarquage* marq2);
 	bool isNodeExist(Noeud node);
 	bool addNode(ListMarquage* marquage);

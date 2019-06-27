@@ -5,20 +5,20 @@
 #if !defined(AFX_LISTMARQUAGE_H__63B24673_B0CC_4C49_9388_0D2377C1C7F6__INCLUDED_)
 #define AFX_LISTMARQUAGE_H__63B24673_B0CC_4C49_9388_0D2377C1C7F6__INCLUDED_
 
-#include "BitsVector.h"	// Added by ClassView
+#include "Marking.h"	// Added by ClassView
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-#define Marquage BitsVector
+
 #include <algorithm>
 using std::vector;
 class ListMarquage
 {
 public:
-	Marquage pop();
+	Marking pop();
 	void addGroupe(ListMarquage& groupe);
 	ListMarquage(const ListMarquage &elt);
-	Marquage* getLastMarquage(){
+	Marking* getLastMarquage(){
 	return &m_liste.back();
 }
 
@@ -31,7 +31,7 @@ public:
 	ListMarquage();
 	virtual ~ListMarquage();
 private:
-	vector<Marquage> m_liste;
+	vector<Marking> m_liste;
 
 };
 typedef ListMarquage Noeud;

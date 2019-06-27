@@ -1,7 +1,7 @@
 #ifndef PELEMENT_H
 #define PELEMENT_H
 
-#include "BitsVector.h"
+#include "Marking.h"
 #include "Transition.h"
 class PElement
 {

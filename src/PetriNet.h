@@ -5,7 +5,7 @@
 #if !defined(AFX_PETRINET_H__91DDDBD6_8669_4EC2_A0F5_E20F2FAFDC37__INCLUDED_)
 #define AFX_PETRINET_H__91DDDBD6_8669_4EC2_A0F5_E20F2FAFDC37__INCLUDED_
 //#include "StdAfx.h"
-#include "BitsVector.h"	// Added by ClassView
+#include "Marking.h"	// Added by ClassView
 #include "Fils.h"	// Added by ClassView
 #if _MSC_VER > 1000
 #pragma once
@@ -31,26 +31,26 @@ class PetriNet {
 public:
 
     string getSCCName(SCC *scc);
-	bool isDivergent(Marquage &marq);
+	bool isDivergent(Marking &marq);
 	vector<Fils> getListFilsEx(ListMarquage* groupe);
 	vector<Fils> getListFils(ListMarquage* groupe);
 	int addPlacesEntrees(string nom_transition, vector<string> liste_places_entrees,vector<int> liste_poids);
-	bool aciveFusion(Marquage *marq);
-	void replaceCyclePhase1(PilePhase1 *pile, const int index,Marquage* marq);
+	bool aciveFusion(Marking *marq);
+	void replaceCyclePhase1(PilePhase1 *pile, const int index,Marking* marq);
 	void replaceCycle(PileRed* pile,const int index,Fils *fils);
-	bool estLocalementRedondant(Marquage *marq);
+	bool estLocalementRedondant(Marking *marq);
 	Transition* getTransitionAdresse(const string nom_transition);
 	void renommerTransitions(vectorString transitions);
 	int getNumero();
 	void setNumero(const int index);
-	Automata* getLocalSpaceReduced(vector<Marquage>& liste_marquages,GrapheSync* graphe_sync,Automata* graphe);
-	string getMarquageName(Marquage marquage);
-	vector<Marquage>* getListMarquageAccFrom(Marquage, Automata *automata,ListMarquage** list);
+	Automata* getLocalSpaceReduced(vector<Marking>& liste_marquages,GrapheSync* graphe_sync,Automata* graphe);
+	string getMarquageName(Marking marquage);
+	vector<Marking>* getListMarquageAccFrom(Marking, Automata *automata,ListMarquage** list);
 	int addPlacesSorties(string nom_transition,vector<string> liste_places_sorties,vector<int> liste_poids);
 	void tirer(Transition& t);
-	void setMarquage(Marquage* marquage);
-	BitsVector getMarquage();
-	Automata* getLocalSpace(Marquage marquage);
+	void setMarquage(Marking* marquage);
+	Marking getMarquage();
+	Automata* getLocalSpace(Marking marquage);
 	Transition getTransition(const int index);
 	Place getPlace(const int index);
 	Transition* getTransitionAdresse(const int code);
@@ -64,8 +64,8 @@ public:
 	void printMarquage();
 	PetriNet();
 	virtual ~PetriNet();
-	Graphe* getLocalGraph(Marquage marquage);
-	StateGraph *getStateGraph(Marquage marquage);
+	Graphe* getLocalGraph(Marking marquage);
+	StateGraph *getStateGraph(Marking marquage);
 	void printMetaState(MetaState *ms);
     void printMetaStateEx(MetaState *ms);
 
@@ -73,10 +73,10 @@ public:
 private:
 	void addArcs(ListMarquage *list,ListMarquage* noeud);
 	Automata* m_graphe;
-	void update(vector<Fils>& liste_fils, Marquage marq,Transition& transition);
+	void update(vector<Fils>& liste_fils, Marking marq,Transition& transition);
 	vector<Fils> getListeFils();
-	vector<Fils> getListeFils(Marquage marq);
-	ListMarquage getListeFilsMarquages(Marquage& marq);
+	vector<Fils> getListeFils(Marking marq);
+	ListMarquage getListeFilsMarquages(Marking& marq);
 	int m_numero;
 //	vector<Marquage> m_list_marq_inserted;
 	vector<Transition*> getListeTransitionsFranchissables();

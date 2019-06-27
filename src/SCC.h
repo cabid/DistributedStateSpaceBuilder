@@ -1,22 +1,22 @@
 #ifndef SCC_H
 #define SCC_H
 
-#include "BitsVector.h"
+#include "Marking.h"
 // This class represents a Strongly Connected Component
 class SCC
 {
     public:
         SCC();
         virtual ~SCC();
-        Marquage * existState(Marquage *m);
+        Marking * existState(Marking *m);
         long getCount();
-        void addState(Marquage *m);
-        vector<Marquage*>* getListStates();
+        void addState(Marking *m);
+        vector<Marking*>* getListStates();
         bool isEqual(const SCC & scc);
     protected:
 
     private:
-    vector<Marquage*> m_list;
+    vector<Marking*> m_list;
 };
 
 #endif // SCC_H

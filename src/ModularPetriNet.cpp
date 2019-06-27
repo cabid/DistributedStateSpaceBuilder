@@ -158,7 +158,7 @@ void CModularPetriNet::constructSync2() {
 
 			NodeSG* noeudSG_arrivee = new NodeSG();
 			for (int module = 0; module < getNbModules(); module++) {
-				BitsVector m = m_modules.at(module)->getMarquage();
+				Marking m = m_modules.at(module)->getMarquage();
 				noeudSG_arrivee->addMarquage(m, NULL);
 			}
 
@@ -693,7 +693,7 @@ void CModularPetriNet::extractEnabledFusionReduced(vector<MetaState*>& list_ms,
 			{
 				ListLocalStates list_states=list_ms.at(j)->getListMarq();
 				// states_enabling_fusion.at(j)= NULL;
-				states_enabling_fusion.at(j)= new vector<BitsVector*>();
+				states_enabling_fusion.at(j)= new vector<Marking*>();
 				if (fusion->participate(j) )
 				{
 					for (int index=0; index<list_states->size(); index++)
@@ -772,7 +772,7 @@ void CModularPetriNet::extractEnabledFusion(ProductSCC* product,
 			{
 				ListLocalStates list_states=m_dss->getLocalStates(product,j);
 				// states_enabling_fusion.at(j)= NULL;
-				states_enabling_fusion.at(j)= new vector<BitsVector*>();
+				states_enabling_fusion.at(j)= new vector<Marking*>();
 				if (fusion->participate(j) )
 				{
 					for (int index=0; index<list_states->size(); index++)

@@ -1,20 +1,20 @@
-// BitsVector.cpp: implementation of the BitsVector class.
+// Marking.cpp: implementation of the Marking class.
 //
 //////////////////////////////////////////////////////////////////////
 
 
-#include "BitsVector.h"
+#include "Marking.h"
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-BitsVector::BitsVector() : m_vide(false)
+Marking::Marking() : m_vide(false)
 {
 
 }
 
-BitsVector::~BitsVector()
+Marking::~Marking()
 {
 
 }
@@ -22,18 +22,18 @@ BitsVector::~BitsVector()
 
 
 
-void BitsVector::add8BitsValue(const Octet val)
+void Marking::add8BitsValue(const Octet val)
 {
 	m_vector.push_back(val);
 }
 
 
-Octet BitsVector::get8BitsValue(const int index)
+Octet Marking::get8BitsValue(const int index)
 {
 	return m_vector[index];
 }
 
-BitsVector::BitsVector(const BitsVector &value)
+Marking::Marking(const Marking &value)
 {
 
 	m_vide=value.m_vide;
@@ -43,7 +43,7 @@ BitsVector::BitsVector(const BitsVector &value)
 
 
 
-BitsVector& BitsVector::operator=(const BitsVector &newvec)
+Marking& Marking::operator=(const Marking &newvec)
 {
 	if (this==&newvec) return *this;
 	this->m_vide=newvec.m_vide;

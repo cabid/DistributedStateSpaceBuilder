@@ -1,7 +1,7 @@
 #ifndef RELEMENT_DSS_H
 #define RELEMENT_DSS_H
 
-#define ListLocalStates vector<Marquage*>*
+#define ListLocalStates vector<Marking*>*
 #define ListGlobalStates vector<ListLocalStates>*
 #include "ProductSCC.h"
 #include "PElement_dss.h"

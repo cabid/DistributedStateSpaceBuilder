@@ -25,12 +25,12 @@
 
 /*class SCC;-
 class ProductSCC;*/
-#define ListLocalStates vector<Marquage*>*
+#define ListLocalStates vector<Marking*>*
 #define ListGlobalStates vector<ListLocalStates>*
 
 
 //class DistributedState;
-typedef vector<Marquage> ListMarqLoc;
+typedef vector<Marking> ListMarqLoc;
 class ModularSpace;
 class PetriNet;
 class NodeSGSimplified;

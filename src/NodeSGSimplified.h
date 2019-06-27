@@ -5,7 +5,7 @@
 #if !defined(AFX_NODESGSIMPLIFIED_H__C0E45B46_BE36_4B2F_A970_B674E7C897CF__INCLUDED_)
 #define AFX_NODESGSIMPLIFIED_H__C0E45B46_BE36_4B2F_A970_B674E7C897CF__INCLUDED_
 #include"StdAfx.h"
-#include "BitsVector.h"	// Added by ClassView
+#include "Marking.h"	// Added by ClassView
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
@@ -16,14 +16,14 @@ class NodeSGSimplified
 {
 public:
 	NodeSGSimplified(const NodeSGSimplified &noeud);
-	void addMarquage(Marquage& marquage);
-	Marquage* getMarquage(const int index) { return &m_list[index]; }
+	void addMarquage(Marking& marquage);
+	Marking* getMarquage(const int index) { return &m_list[index]; }
 	void setVide(const int index);
 	bool operator ==( NodeSGSimplified &marq);
 	NodeSGSimplified& operator =(const NodeSGSimplified &val);
 	NodeSGSimplified();
 	virtual ~NodeSGSimplified();
-	vector<Marquage> m_list;
+	vector<Marking> m_list;
 
 protected:
 

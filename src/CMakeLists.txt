@@ -42,8 +42,8 @@ add_executable(distributedstatespace main.cpp
     Automata.h
     Arc.cpp
     Arc.h
-    BitsVector.cpp
-    BitsVector.h
+    Marking.cpp
+    Marking.h
     ProductSCC.cpp
     ProductSCC.h
     PetriNet.cpp

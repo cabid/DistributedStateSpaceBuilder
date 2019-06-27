@@ -4,7 +4,7 @@
 
 #if !defined(AFX_MARQUAGEGLOBAL_H__32E095E3_E8C6_4893_B5D6_381F7392D41B__INCLUDED_)
 #define AFX_MARQUAGEGLOBAL_H__32E095E3_E8C6_4893_B5D6_381F7392D41B__INCLUDED_
-#include "BitsVector.h"	// Added by ClassView
+#include "Marking.h"	// Added by ClassView
 using std::vector;
 #if _MSC_VER > 1000
 #pragma once
@@ -31,7 +31,7 @@ public:
 	NodeSG& operator =(const NodeSG &val);
 	bool operator ==(NodeSG &marq);
 
-	void addMarquage(Marquage &marquage,ListMarquage* equiv);
+	void addMarquage(Marking &marquage,ListMarquage* equiv);
 	NodeSG();
 	virtual ~NodeSG();
 

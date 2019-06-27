@@ -5,7 +5,7 @@
 #if !defined(AFX_LISTSYNC_H__E0EEADD3_02F7_475B_B3FA_73A1CF0657BA__INCLUDED_)
 #define AFX_LISTSYNC_H__E0EEADD3_02F7_475B_B3FA_73A1CF0657BA__INCLUDED_
 
-#include "BitsVector.h"	// Added by ClassView
+#include "Marking.h"	// Added by ClassView
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
@@ -13,16 +13,16 @@
 class ListSync
 {
 public:
-	Marquage getMarquage(const int index);
+	Marking getMarquage(const int index);
 	ListSync & operator =(const ListSync &list);
 	int getCount();
 	void empty();
-	void addTransition(Transition t,Marquage marq);
+	void addTransition(Transition t,Marking marq);
 	ListSync();
 	virtual ~ListSync();
 private:
 	vector<Transition> m_list_sync;
-	vector<Marquage> m_list_marq;
+	vector<Marking> m_list_marq;
 
 };
 

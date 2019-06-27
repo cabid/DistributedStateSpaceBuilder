@@ -1,6 +1,6 @@
 #ifndef PELEMENT_DSS_H
 #define PELEMENT_DSS_H
-#define ListLocalStates vector<Marquage*>*
+#define ListLocalStates vector<Marking*>*
 #define ListGlobalStates vector<ListLocalStates>*
 #include "Fusion.h"
 class PElement_dss {

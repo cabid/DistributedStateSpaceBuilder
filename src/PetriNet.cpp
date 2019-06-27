@@ -121,7 +121,7 @@ Transition PetriNet::getTransition(const int index)
 ////////////////////////////////
 // Renvoyer le marquage courant
 ////////////////////////////////
-BitsVector PetriNet::getMarquage()
+Marking PetriNet::getMarquage()
 {
 	Marquage vecteur;
 	for (int i=0;i<m_places.size();i++) {

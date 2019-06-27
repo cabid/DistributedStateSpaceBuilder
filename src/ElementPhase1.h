@@ -8,7 +8,7 @@
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-#include "BitsVector.h"
+#include "Marking.h"
 #include "ListMarquage.h"
 class ElementPhase1
 {

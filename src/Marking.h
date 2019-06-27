@@ -13,7 +13,7 @@
 using namespace std;
 typedef unsigned char Octet;
 typedef vector<Octet> VecCar ;
-class BitsVector
+class Marking
 {
 public:
     int index; // Used in Tarjan algorithm
@@ -24,10 +24,10 @@ public:
 		return m_vide;
 	}
 
-	BitsVector & operator =(const BitsVector &newvec);
-	BitsVector(const BitsVector &value);
+	Marking & operator =(const Marking &newvec);
+	Marking(const Marking &value);
 	Octet get8BitsValue(const int index);
-	bool operator ==(const  BitsVector &newvec) const
+	bool operator ==(const  Marking &newvec) const
 	{
 		if (this->m_vide==true && newvec.m_vide==true) {
 			return true;
@@ -39,7 +39,7 @@ public:
 			if (m_vector.at(i)!=newvec.m_vector.at(i)) return false;
 		return true;
 	}
-	bool operator ==(const  BitsVector *newvec) const
+	bool operator ==(const  Marking *newvec) const
 	{
 		if (this->m_vide==true && newvec->m_vide==true) {
 			return true;
@@ -52,22 +52,22 @@ public:
 		return true;
 	}
 	void add8BitsValue(const Octet val);
-	BitsVector();
-	virtual ~BitsVector();
+	Marking();
+	virtual ~Marking();
 private:
 	bool m_vide;
 	VecCar m_vector;
 
 };
 
-inline void BitsVector::setVide(bool v)
+inline void Marking::setVide(bool v)
  {
  	m_vide=v;
  }
 
 
 
-#define Marquage BitsVector
-typedef vector<BitsVector> MarquageGlob;
+#define Marquage Marking
+typedef vector<Marking> MarquageGlob;
 
 #endif // !defined(AFX_BITSVECTOR_H__FCB7EB69_05AC_41F8_9A21_7807D91657A0__INCLUDED_)
