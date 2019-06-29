@@ -11,7 +11,7 @@ endif()
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
 # project name and language
-project(mc-sog C CXX)
+project(distributedstatespace C CXX)
 
 # compiler flags
 if(CMAKE_COMPILER_IS_GNUCC)
