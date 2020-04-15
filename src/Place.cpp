@@ -19,27 +19,23 @@ Place::~Place()
 
 }
 
-int Place::getTokens()
+uint32_t Place::getTokens()
 {
 	return m_nb_tokens;
 }
 
-void Place::setTokens(const int value)
+void Place::setTokens(const uint32_t value)
 {
 	m_nb_tokens=value;
 }
 
-void Place::addTokens(const int addValue)
+void Place::addTokens(const uint32_t addValue)
 {
 	m_nb_tokens+=addValue;
 }
 
-void Place::subTokens(const int nb)
+void Place::subTokens(const uint32_t nb)
 {
 	m_nb_tokens-=nb;
 }
 
-//DEL bool Place::isNil()
-//DEL {
-//DEL 	return m_nil;
-//DEL }

@@ -15,7 +15,7 @@ class ElementPhase1
 public:
 	ElementPhase1(const ElementPhase1 &elt);
 	bool etat;
-	bool isExist(Marquage * marq);
+	bool isExist(Marking * marq);
 	ElementPhase1();
 	virtual ~ElementPhase1();
 	ListMarquage* groupe;

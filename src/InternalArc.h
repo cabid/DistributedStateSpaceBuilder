@@ -7,19 +7,19 @@ class InternalArc
 {
     public:
         InternalArc();
-        void setSource(Marquage *source);
-        void setDestination(Marquage *dest);
+        void setSource(Marking *source);
+        void setDestination(Marking *dest);
         void setTranition(Transition *tr);
         virtual ~InternalArc();
-        Marquage *getSource();
-        Marquage *getDestination();
+        Marking *getSource();
+        Marking *getDestination();
         Transition *getTransition();
 
     protected:
 
     private:
-        Marquage* m_source;
-        Marquage* m_destination;
+        Marking* m_source;
+        Marking* m_destination;
         Transition * m_transition;
 };
 

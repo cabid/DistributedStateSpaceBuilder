@@ -6,7 +6,7 @@
  */
 #include <iostream>
 #include "MetaGraph.h"
-#define ListLocalStates vector<Marquage*>*
+#define ListLocalStates vector<Marking*>*
 MetaGraph::MetaGraph() {
 	ml_metastate.clear();
 
@@ -23,7 +23,7 @@ void MetaGraph::addMetaState(MetaState *ms){
 
 ListLocalStates MetaGraph::getListLocalStates(ProductSCC* productscc) {
     bool result=false;
-    vector<Marquage*>* list_local_states=NULL;
+    vector<Marking*>* list_local_states=NULL;
     for (int i=0;i<ml_metastate.size() && !result;i++) {
         MetaState* ms=ml_metastate.at(i);
         if (ms->getSCCProductName()==productscc) {

@@ -15,7 +15,7 @@ class GrapheSync
 {
 public:
 
-	bool estRedondant(Marquage* marquage,const int index);
+	bool estRedondant(Marking* marquage,const int index);
 	NodeSG* getNode(const int index);
 	NodeSG* addNode(NodeSG* node);
 	bool isNodeExist(NodeSG* marq);

@@ -13,15 +13,15 @@
 
 class Place : public Node  {
 public:
-	void subTokens(const int nb);
-	void addTokens(const int addValue);
-	void setTokens(const int value);
-	int getTokens();
+	void subTokens(const uint32_t nb);
+	void addTokens(const uint32_t addValue);
+	void setTokens(const uint32_t value);
+	uint32_t getTokens();
 	Place();
 	virtual ~Place();
 private:
 
-	int m_nb_tokens;
+	uint32_t m_nb_tokens;
 };
 
 #endif // !defined(AFX_PLACE_H__4A191FB4_6CFF_4348_9744_00D6AE78A3E1__INCLUDED_)

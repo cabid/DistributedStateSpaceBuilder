@@ -17,7 +17,7 @@ ListSync::~ListSync() {
 
 }
 
-void ListSync::addTransition(Transition t, Marquage marq) {
+void ListSync::addTransition(Transition t, Marking marq) {
 	bool exist = false;
 	for (int i = 0; i < m_list_sync.size() && !exist; i++)
 		if (m_list_sync[i].getName() == t.getName())
@@ -45,7 +45,7 @@ ListSync& ListSync::operator =(const ListSync &liste) {
 	return *this;
 }
 
-Marquage ListSync::getMarquage(const int index) {
+Marking ListSync::getMarquage(const int index) {
 	return m_list_marq[index];
 }
 

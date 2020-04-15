@@ -25,7 +25,7 @@ long StateGraph::getCountArcs()
     return m_arcs.size();
 }
 // Return true if state already exists
-Marquage* StateGraph::existState(Marquage *marq)
+Marking* StateGraph::existState(Marking *marq)
 {
     bool result=false;
     int i=0;
@@ -34,9 +34,9 @@ Marquage* StateGraph::existState(Marquage *marq)
     return result ? m_nodes.at(i-1) : NULL;
 }
 
-Marquage* StateGraph::addMarquage(Marquage *m)
+Marking* StateGraph::addMarquage(Marking *m)
 {
-    Marquage * p=existState(m);
+    Marking * p=existState(m);
     if (!p) m_nodes.push_back(m);
     return p;
 }
@@ -52,7 +52,7 @@ void StateGraph::setID(int module)
 }
 
 
-vector<Marquage*>* StateGraph::getListMarquages()
+vector<Marking*>* StateGraph::getListMarquages()
 {
     return &m_nodes;
 }
@@ -83,7 +83,7 @@ void StateGraph::computeSCCTarjan()
         if (m_nodes.at(i)->index==-1) strongconnect(m_nodes.at(i));
 }
 
-void StateGraph::strongconnect(Marquage *v)
+void StateGraph::strongconnect(Marking *v)
 {
     v->index=m_index;
     v->lowlink=m_index;
@@ -96,7 +96,7 @@ void StateGraph::strongconnect(Marquage *v)
     {
         if (m_arcs.at(i).getSource()==v)
         {
-            Marquage *w=m_arcs.at(i).getDestination();
+            Marking *w=m_arcs.at(i).getDestination();
             if (w->index==-1)
             {
                 strongconnect(w);
@@ -109,7 +109,7 @@ void StateGraph::strongconnect(Marquage *v)
     if (v->lowlink == v->index)
     {
         SCC* scc=new SCC();
-        Marquage * w;
+        Marking * w;
         do
         {
             w = m_stack.back();
@@ -122,12 +122,12 @@ void StateGraph::strongconnect(Marquage *v)
     }
 }
 
-SCC* StateGraph::findSCC(Marquage* state)
+SCC* StateGraph::findSCC(Marking* state)
 {
 
     for (int i=0; i<m_scc.size(); i++)
     {
-        vector<Marquage*>*  list_states=m_scc.at(i)->getListStates();
+        vector<Marking*>*  list_states=m_scc.at(i)->getListStates();
         if (find(list_states->begin(),list_states->end(), state) != list_states->end()) return m_scc.at(i);
     }
     return NULL;

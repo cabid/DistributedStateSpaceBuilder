@@ -33,7 +33,7 @@ bool NodeSGSimplified::operator ==(NodeSGSimplified &marq)
 }
 
 
-void NodeSGSimplified::addMarquage(Marquage& marquage)
+void NodeSGSimplified::addMarquage(Marking& marquage)
 {
 	m_list.push_back(marquage);
 }

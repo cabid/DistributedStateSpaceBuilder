@@ -15,13 +15,13 @@ class Graphe
 {
 public:
 	Graphe();
-	vector<Marquage>* getListMarq();
-	void addMarquage(Marquage *m);
+	vector<Marking>* getListMarq();
+	void addMarquage(Marking *m);
 	void addArc(Arc *arc);
-	bool existMarquage(Marquage* mar);
+	bool existMarquage(Marking* mar);
 	virtual ~Graphe();
 private:
-	vector<Marquage>* m_nodes;
+	vector<Marking>* m_nodes;
 	vector<Arc>* m_arcs;
 
 };

@@ -8,7 +8,7 @@ class PElement
     public:
         PElement();
         virtual ~PElement();
-        Marquage* marquage;
+        Marking* marquage;
         vector<Transition*> liste_transitions;
     protected:
 

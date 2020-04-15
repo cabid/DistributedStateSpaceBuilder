@@ -51,7 +51,7 @@ public:
 	DistributedState* buildDSS();
     DistributedState* buildReducedDSS();
 
-	Marquage getMarquageModule(const int index);
+	Marking getMarquageModule(const int index);
 	Fusion* getFusion(const int index);
 	int getCountFusions();
 	void addSync(const string transition_name);

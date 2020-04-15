@@ -37,7 +37,7 @@ public:
 	ModularSpace();
 	virtual ~ModularSpace();
 	string getCorrespondant(ListMarquage* noeud,const int index_module);
-	string getCorrespondantMarquage(Marquage marq,const int index);
+	string getCorrespondantMarquage(Marking marq,const int index);
 	string getCorrespondantNodeSG(NodeSGSimplified* node);
 private:
 

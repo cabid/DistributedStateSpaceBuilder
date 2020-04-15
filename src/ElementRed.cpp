@@ -18,7 +18,7 @@ ElementRed::~ElementRed()
 
 }
 
-bool ElementRed::isExist(Marquage *marq)
+bool ElementRed::isExist(Marking *marq)
 {
 	return groupe->existMarquage(marq);
 }

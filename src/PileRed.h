@@ -14,7 +14,7 @@
 class PileRed
 {
 public:
-	int isCycle(Marquage *marq);
+	int isCycle(Marking *marq);
 	PileRed();
 	virtual ~PileRed();
 	vector<ElementRed> m_liste;

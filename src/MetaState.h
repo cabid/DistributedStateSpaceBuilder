@@ -15,13 +15,13 @@ class ArcSync;
 class MetaState {
 public:
 	MetaState();
-	vector<ArcSync*> getListArcSync();
+	vector<ArcSync*> getSucc();
 	void setStateGraph(StateGraph* aut);
 	void setId(unsigned int id);
-	vector<Marquage*>*  getListMarq();
+	vector<Marking*>*  getListMarq();
 	vector<InternalArc>* getListArcs();
 	vector<SCC*>* getListSCCs();
-	SCC* findSCC(Marquage *state);
+	SCC* findSCC(Marking *state);
 	virtual ~MetaState();
     SCC* getInitialSCC();
     ProductSCC* getSCCProductName();

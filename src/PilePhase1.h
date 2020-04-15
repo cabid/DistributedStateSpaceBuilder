@@ -13,7 +13,7 @@ using std::vector;
 class PilePhase1
 {
 public:
-	long isCycle(Marquage *marq);
+	long isCycle(Marking *marq);
 	PilePhase1();
 	virtual ~PilePhase1();
 	vector<ElementPhase1> m_liste;

@@ -18,7 +18,7 @@ public:
 	void setNombreModules(const int n);
 	void addMetaState(MetaState* ms, int module);
 	virtual ~DistributedState();
-	vector<Marquage*>* getLocalStates(ProductSCC* productscc,const int module);
+	vector<Marking*>* getLocalStates(ProductSCC* productscc,const int module);
 
 private:
 	CModularPetriNet* m_petri;

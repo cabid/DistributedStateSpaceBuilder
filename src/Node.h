@@ -18,9 +18,7 @@ public:
 	Node();
 	virtual ~Node();
 protected:
-
 	string m_name;
-
 };
 
 #endif // !defined(AFX_NODE1_H__1392115E_4EE1_4060_BB6E_945CC41A21DD__INCLUDED_)

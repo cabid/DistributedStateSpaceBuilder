@@ -51,13 +51,13 @@ void Fils::addTransition(const Transition& t)
 	if (!isTransitionExist(t)) m_list_transitions.push_back(t);
 }
 
-Marquage& Fils::getMarquage()
+Marking& Fils::getMarquage()
 {
 
 	return m_marq;
 }
 
-void Fils::setMarquage(Marquage& marq)
+void Fils::setMarquage(Marking& marq)
 {
 	m_marq=marq;
 

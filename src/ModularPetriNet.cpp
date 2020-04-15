@@ -8,7 +8,7 @@
 #include "time.h"
 #include "ArcSync.h"
 #include <fstream>
-Marquage MARQUAGE_VIDE;
+Marking MARQUAGE_VIDE;
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -107,7 +107,7 @@ void CModularPetriNet::reduceMarquageName(NodeSG* marquage_global_depart,
 ///////////////////////////////////////////////////////////////////////
 // Retourner le marquage courant � un module
 ///////////////////////////////////////////////////////////////////////
-Marquage CModularPetriNet::getMarquageModule(const int index) {
+Marking CModularPetriNet::getMarquageModule(const int index) {
 	return m_modules[index]->getMarquage();
 }
 ///////////////////////////////////////////////////////////////////////////
@@ -148,7 +148,7 @@ void CModularPetriNet::constructSync2() {
 
 		for (int index = 0; index < noeud->getCountArcs(); index++) {
 			for (int module = 0; module < getNbModules(); module++) {
-				Marquage source =
+				Marking source =
 						*(*noeud->getArc(index)->getMarquageSource()).getMarquage(
 								module);
 				m_modules[module]->setMarquage(&source);
@@ -308,7 +308,7 @@ void CModularPetriNet::extractionFusion(vector<ListMarqLoc*>& liste_,
 
 				} else if (!fusion->participate(j)) {
 
-					Marquage m = liste_.at(j)->at(0);
+					Marking m = liste_.at(j)->at(0);
 					m.setVide(true);
 					liste_marq_locaux[j].push_back(m);
 
@@ -347,12 +347,12 @@ ModularSpace* CModularPetriNet::constructReducedStateSpace() {
 	constructSync2();
 
 	// 2�me �tape : Ach�vement de la construction des graphes locaux
-	vector<Marquage> list_marquages;
+	vector<Marking> list_marquages;
 	for (int index_module = 0; index_module < getNbModules(); index_module++) {
 
 		for (int i = 0; i < m_graphe_sync->getNodesCount(); i++) {
 			NodeSG* node = m_graphe_sync->getNode(i);
-			Marquage marquage = *node->getMarquage(index_module);
+			Marking marquage = *node->getMarquage(index_module);
 			if (!marquage.isVide()
 					&& (list_marquages.end()
 							== find(list_marquages.begin(),
@@ -409,7 +409,7 @@ DistributedState* CModularPetriNet::buildReducedDSS() {
 			for (int index_global_state = 0;
 					index_global_state < elt.m_gs->size();
 					index_global_state++) {
-				vector<Marquage*>* global_state = elt.m_gs->at(
+				vector<Marking*>* global_state = elt.m_gs->at(
 						index_global_state);
 				for (int module = 0; module < getNbModules(); module++) {
 					m_modules[module]->setMarquage(global_state->at(module));
@@ -552,7 +552,7 @@ DistributedState* CModularPetriNet::buildDSS() {
 			for (int index_global_state = 0;
 					index_global_state < elt.m_gs->size();
 					index_global_state++) {
-				vector<Marquage*>* global_state = elt.m_gs->at(
+				vector<Marking*>* global_state = elt.m_gs->at(
 						index_global_state);
 				for (int module = 0; module < getNbModules(); module++) {
 					m_modules[module]->setMarquage(global_state->at(module));
@@ -836,7 +836,7 @@ ListGlobalStates CModularPetriNet::computeSychronisedProduct(vector<ListLocalSta
 		}
 		//
 
-		vector<Marquage*>* marq=new vector<Marquage*>();
+		vector<Marking*>* marq=new vector<Marking*>();
 		for (int i=0; i<states_enabling_fusion.size(); i++)
 		{
 			marq->push_back(states_enabling_fusion[i]->at(indices[i]));
@@ -870,8 +870,8 @@ void CModularPetriNet::writeToFile(const string filename) {
 			myfile << "subgraph cluster" << getProductSCCName(pscc) << module
 					<< " {" << endl;
 			for (int jj = 0; jj < ms->getListArcs()->size(); jj++) {
-				Marquage *source_marq = ms->getListArcs()->at(jj).getSource();
-				Marquage *dest_marq =
+				Marking *source_marq = ms->getListArcs()->at(jj).getSource();
+				Marking *dest_marq =
 						ms->getListArcs()->at(jj).getDestination();
 				myfile << petri->getMarquageName(*source_marq)
 						<< getProductSCCName(pscc) << module << " -> ";
@@ -884,10 +884,10 @@ void CModularPetriNet::writeToFile(const string filename) {
 			myfile << "label=\"" << getProductSCCName(pscc) << "\"" << endl;
 			myfile << "}" << endl;
 
-			for (int k = 0; k < ms->getListArcSync().size(); k++) {
+			for (int k = 0; k < ms->getSucc().size(); k++) {
 				myfile << petri->getSCCName(pscc->getSCC(module))
 						<< getProductSCCName(pscc) << module << " -> ";
-				ArcSync* arc = ms->getListArcSync().at(k);
+				ArcSync* arc = ms->getSucc().at(k);
 				MetaState *ms_dest = arc->getMetaStateDest();
 				myfile
 						<< petri->getSCCName(
@@ -935,8 +935,8 @@ void CModularPetriNet::writeTextFile(const string filename) {
 			myfile << "Metastate : " << getProductSCCName(pscc) << endl;
 
 			for (int jj = 0; jj < ms->getListArcs()->size(); jj++) {
-				Marquage *source_marq = ms->getListArcs()->at(jj).getSource();
-				Marquage *dest_marq =
+				Marking *source_marq = ms->getListArcs()->at(jj).getSource();
+				Marking *dest_marq =
 						ms->getListArcs()->at(jj).getDestination();
 
 				myfile << petri->getMarquageName(*source_marq) << " - "
@@ -952,7 +952,7 @@ void CModularPetriNet::writeTextFile(const string filename) {
 		for (int i = 0; i < m_dss->getMetaGraph(module)->getMetaStateCount();
 				i++) {
 			MetaState *ms = m_dss->getMetaGraph(module)->getMetaState(i);
-			total_arcs += ms->getListArcSync().size();
+			total_arcs += ms->getSucc().size();
 		}
 		myfile << "#Synchronisation arcs : " << total_arcs << endl;
 		// List sync arcs
@@ -961,9 +961,9 @@ void CModularPetriNet::writeTextFile(const string filename) {
 
 			MetaState *ms = m_dss->getMetaGraph(module)->getMetaState(i);
 			ProductSCC *pscc = ms->getSCCProductName();
-			for (int k = 0; k < ms->getListArcSync().size(); k++) {
+			for (int k = 0; k < ms->getSucc().size(); k++) {
 				myfile << getProductSCCName(pscc) << " ==== ";
-				ArcSync* arc = ms->getListArcSync().at(k);
+				ArcSync* arc = ms->getSucc().at(k);
 				MetaState *ms_dest = arc->getMetaStateDest();
 				myfile << "(" << getProductSCCName(arc->getStartProduct())
 						<< "," << arc->getFusion()->getName() << ") ===> ";

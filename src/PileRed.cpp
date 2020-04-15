@@ -20,7 +20,7 @@ PileRed::~PileRed()
 
 }
 
-int PileRed::isCycle(Marquage *marq)
+int PileRed::isCycle(Marking *marq)
 {
 	int result=-1;
 	for (int i=0;i<(m_liste.size()-1) && result==-1;i++) {

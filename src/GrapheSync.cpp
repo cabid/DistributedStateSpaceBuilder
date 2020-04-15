@@ -67,7 +67,7 @@ NodeSG* GrapheSync::getNode(const int index)
 
 
 
-bool GrapheSync::estRedondant(Marquage *marquage,const int index)
+bool GrapheSync::estRedondant(Marking *marquage,const int index)
 {		
 	for (int i=0;i<m_noeuds.size();i++)
 	{

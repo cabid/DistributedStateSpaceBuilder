@@ -163,7 +163,7 @@ string ModularSpace::getCorrespondant(ListMarquage *noeud,const int index_module
 
 	for (int i=0;i<noeud->getCount();i++) {
 
-		Marquage m=*noeud->getMarquage(i);
+		Marking m=*noeud->getMarquage(i);
 		for (int j=0;j<m_petri->getModule(index_module)->getPlacesCount();j++) {
 			if (m.get8BitsValue(j)!=0) {
 				if (m.get8BitsValue(j)!=1) {
@@ -195,7 +195,7 @@ GrapheSync* ModularSpace::getGrapheSync()
 
 }
 
-string ModularSpace::getCorrespondantMarquage(Marquage marq,const int index)
+string ModularSpace::getCorrespondantMarquage(Marking marq,const int index)
 {
 	string resultat="";
 	char chaine[100]="\0";

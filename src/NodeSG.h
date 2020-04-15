@@ -40,7 +40,7 @@ public:
 
 
 
-inline void NodeSG::addMarquage(Marquage &marquage,ListMarquage* equiv)
+inline void NodeSG::addMarquage(Marking &marquage,ListMarquage* equiv)
 {
 	using std::vector;
 	m_list.push_back(marquage);

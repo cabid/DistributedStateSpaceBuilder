@@ -23,9 +23,9 @@ public:
 }
 
 	int getCount() { return m_liste.size(); }
-	Marquage* getMarquage(const int index) { return &m_liste.at(index); }
-	void addMarquage(Marquage* marquage) { if (!existMarquage(marquage)) m_liste.push_back(*marquage); }
-	bool existMarquage(Marquage* mar)  {	return (m_liste.end()!=find(m_liste.begin(),m_liste.end(),*mar));}
+	Marking* getMarquage(const int index) { return &m_liste.at(index); }
+	void addMarquage(Marking* marquage) { if (!existMarquage(marquage)) m_liste.push_back(*marquage); }
+	bool existMarquage(Marking* mar)  {	return (m_liste.end()!=find(m_liste.begin(),m_liste.end(),*mar));}
 	bool operator ==(ListMarquage &marquage);
 	ListMarquage& operator =(const ListMarquage &elt);
 	ListMarquage();

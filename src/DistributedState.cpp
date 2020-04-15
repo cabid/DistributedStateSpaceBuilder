@@ -14,7 +14,7 @@ DistributedState::DistributedState(CModularPetriNet *petri)
 }
 
 DistributedState::~DistributedState() {
-	// TODO Auto-generated destructor stub
+	
 }
 
 
@@ -42,6 +42,6 @@ void DistributedState::addMetaState(MetaState* ms, int module)
 	ml_metagraph[module]->addMetaState(ms);
 }
 
-vector<Marquage*>* DistributedState::getLocalStates(ProductSCC* productscc,const int module) {
+vector<Marking*>* DistributedState::getLocalStates(ProductSCC* productscc,const int module) {
     return ml_metagraph[module]->getListLocalStates(productscc);
 }

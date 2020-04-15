@@ -18,7 +18,7 @@ ElementPhase1::~ElementPhase1()
 {
 
 }
-bool ElementPhase1::isExist(Marquage *marq)
+bool ElementPhase1::isExist(Marking *marq)
 {
 	return groupe->existMarquage(marq);
 }

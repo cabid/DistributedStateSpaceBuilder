@@ -25,7 +25,7 @@ void MetaState::setId(unsigned int id) {
 	m_id=id;
 }
 
-vector<Marquage*>*  MetaState::getListMarq() {
+vector<Marking*>*  MetaState::getListMarq() {
 	return m_graph->getListMarquages();
 }
 
@@ -37,7 +37,7 @@ vector<SCC*>* MetaState::getListSCCs() {
     return m_graph->getListSCCs();
 }
 
-SCC* MetaState::findSCC(Marquage *state) {
+SCC* MetaState::findSCC(Marking *state) {
     return m_graph->findSCC(state);
 }
 
@@ -59,6 +59,6 @@ void MetaState::addSyncArc(ArcSync *sync_arc) {
     m_arcs.push_back(sync_arc);
 }
 
-vector<ArcSync*> MetaState::getListArcSync() {
+vector<ArcSync*> MetaState::getSucc() {
     return m_arcs;
 }

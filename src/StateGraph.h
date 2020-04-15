@@ -13,29 +13,29 @@ class StateGraph
         virtual ~StateGraph();
         long getCountNodes();
         long getCountArcs();
-        Marquage* existState(Marquage *marq);
-        Marquage* addMarquage(Marquage *m);
+        Marking* existState(Marking *marq);
+        Marking* addMarquage(Marking *m);
         void addArc(InternalArc *arc);
         void setID(int module);
-        vector<Marquage*>* getListMarquages();
+        vector<Marking*>* getListMarquages();
         vector<InternalArc>* getListArcs();
         vector<SCC*>* getListSCCs();
         void computeSCCTarjan();
-        SCC* findSCC(Marquage* state);
+        SCC* findSCC(Marking* state);
     protected:
 
 
     private:
-        void strongconnect(Marquage *v);
+        void strongconnect(Marking *v);
         unsigned int m_module_id;
-        vector<Marquage*> m_nodes;
+        vector<Marking*> m_nodes;
         vector<InternalArc> m_arcs;
         vector<string> m_transitions;
         vector<SCC*> m_scc;
 
 
         unsigned int m_index; // Used in Tarjan algorithm
-        vector<Marquage*> m_stack;
+        vector<Marking*> m_stack;
 };
 
 #endif // STATEGRAPH_H

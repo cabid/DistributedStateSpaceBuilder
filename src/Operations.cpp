@@ -39,7 +39,7 @@ Operations::~Operations()
 //DEL 	}
 //DEL }
 
-bool Operations::find(vector<Marquage> list, Marquage *marq)
+bool Operations::find(vector<Marking> list, Marking *marq)
 {
 
 	for (int i=0;i<list.size();i++)

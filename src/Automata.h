@@ -12,15 +12,15 @@
 
 #include "ListMarquage.h"	// Added by ClassView
 #include "ModularSpace.h"
-typedef vector<Marquage> ListMarqLoc;
+typedef vector<Marking> ListMarqLoc;
 class ModularSpace;
 class Automata
 {
 public:
 	void suppress(ListMarquage *noeud);
 	ListMarquage* addNode2(ListMarquage* groupe);
-	ListMarquage* getFirstNodeContainMarquage(Marquage* marq);
-	Marquage getRepresentativeNode();
+	ListMarquage* getFirstNodeContainMarquage(Marking* marq);
+	Marking getRepresentativeNode();
 	void substitute(vector<ListMarquage*> listenoeuds, ListMarquage* noeud);
 	void addArcs(ListMarquage *source,vector<Transition>& liste_transitions,ListMarquage *destination);
 	void setNumero(const int num);

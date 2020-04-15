@@ -19,7 +19,7 @@ public:
 	void addFils(vector<Fils>& liste_fils);
 	ElementRed(const ElementRed &elt);
 	ElementRed& operator =(const ElementRed &elt);
-	bool isExist(Marquage * marq);
+	bool isExist(Marking * marq);
 	ListMarquage* groupe;
 	vector<Fils> liste_fils;
 	bool etat;

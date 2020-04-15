@@ -16,10 +16,9 @@ class Operations
 public:
 	static bool findArc(vector<ArcSG*>* liste,ArcSG* arc);
 	static void reduceArcs(vector<ArcSG*>** list_arcs);
-
 	static bool verifier(vector<Transition*>& liste,string transition);
 	static bool find(vector<string> liste,string value);
-	static bool find(vector<Marquage> list,Marquage  *marq);
+	static bool find(vector<Marking> list,Marking  *marq);
 	Operations();
 	virtual ~Operations();
 

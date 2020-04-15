@@ -55,9 +55,9 @@ void ListMarquage::addGroupe(ListMarquage& groupe)
 		addMarquage(groupe.getMarquage(i));
 }
 
-Marquage ListMarquage::pop()
+Marking ListMarquage::pop()
 {
-	Marquage marq=m_liste.back();
+	Marking marq=m_liste.back();
 	m_liste.pop_back();
 	return marq;
 }

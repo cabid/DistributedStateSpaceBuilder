@@ -68,7 +68,7 @@ void Automata::addArc(ListMarquage* node_source, const string libelle_arc,ListMa
 
 }
 
-void Automata::addArc(Marquage source, const string libelle_arc, Marquage dest)
+void Automata::addArc(Marking source, const string libelle_arc, Marking dest)
 {
 	vector<ListMarquage*> liste_source=getNodesContainMarquage(&source);
 	vector<ListMarquage*> liste_dest=getNodesContainMarquage(&dest);
@@ -78,7 +78,7 @@ void Automata::addArc(Marquage source, const string libelle_arc, Marquage dest)
 
 }
 
-vector<ListMarquage*> Automata::getNodesContainMarquage(Marquage* marq)
+vector<ListMarquage*> Automata::getNodesContainMarquage(Marking* marq)
 {
 	vector<ListMarquage*> liste;
 	for (int i = 0; i < m_nodes.size(); i++) {
@@ -88,7 +88,7 @@ vector<ListMarquage*> Automata::getNodesContainMarquage(Marquage* marq)
 	return liste;
 }
 
-bool Automata::isMarquageExist(Marquage* marq)
+bool Automata::isMarquageExist(Marking* marq)
 {
 
 	for (int i=0;i<m_nodes.size() ;i++) {
@@ -117,7 +117,7 @@ ListMarqLoc Automata::getListMarquages()
 	return liste;
 }
 
-Marquage Automata::getRepresentativeNode()
+Marking Automata::getRepresentativeNode()
 {
  	return *m_nodes[0]->getMarquage(0);
 }
@@ -309,7 +309,7 @@ void Automata::suppressDuplicates()
 	}
 }
 
-ListMarquage* Automata::getFirstNodeContainMarquage(Marquage* marq)
+ListMarquage* Automata::getFirstNodeContainMarquage(Marking* marq)
 {
 	for (int i=0;i<m_nodes.size();i++) {
 		if (m_nodes[i]->existMarquage(marq)) return m_nodes[i];

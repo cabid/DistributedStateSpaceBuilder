@@ -11,9 +11,9 @@ SCC::~SCC()
     //dtor
 }
 
-Marquage * SCC::existState(Marquage *m)
+Marking * SCC::existState(Marking *m)
 {
-    Marquage *found=NULL;
+    Marking *found=NULL;
     int i=0;
     while (!found && i<m_list.size())
     {
@@ -37,11 +37,11 @@ long SCC::getCount()
     return m_list.size();
 }
 
-void SCC::addState(Marquage *m) {
+void SCC::addState(Marking *m) {
     //if (!existState(m))
     m_list.push_back(m);
 }
 
-vector<Marquage*>* SCC::getListStates() {
+vector<Marking*>* SCC::getListStates() {
     return &m_list;
 }

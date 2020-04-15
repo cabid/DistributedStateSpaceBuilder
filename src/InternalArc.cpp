@@ -13,21 +13,21 @@ InternalArc::~InternalArc()
     //dtor
 }
 
-void InternalArc::setSource(Marquage *source) {
+void InternalArc::setSource(Marking *source) {
     m_source=source;
 }
-void InternalArc::setDestination(Marquage *dest) {
+void InternalArc::setDestination(Marking *dest) {
     m_destination=dest;
 }
 void InternalArc::setTranition(Transition *tr) {
     m_transition=tr;
 }
 
-Marquage *InternalArc::getSource() {
+Marking *InternalArc::getSource() {
     return m_source;
 }
 
-Marquage *InternalArc::getDestination() {
+Marking *InternalArc::getDestination() {
     return m_destination;
 }
 

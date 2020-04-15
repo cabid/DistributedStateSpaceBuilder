@@ -67,7 +67,7 @@ inline void Marking::setVide(bool v)
 
 
 
-#define Marquage Marking
-typedef vector<Marking> MarquageGlob;
+
+
 
 #endif // !defined(AFX_BITSVECTOR_H__FCB7EB69_05AC_41F8_9A21_7807D91657A0__INCLUDED_)
