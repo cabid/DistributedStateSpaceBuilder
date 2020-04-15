@@ -333,5 +333,7 @@ ListMarquage* Automata::addNode2(ListMarquage* groupe)
 	m_nodes.push_back(groupe);
 	return groupe;
 }
-
-
+static const ModularSpace* Automata::getParent() {
+    return m_parent;
+}
+static ModularSpace* Automata::m_parent;

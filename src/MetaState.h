@@ -19,7 +19,7 @@ public:
 	void setStateGraph(StateGraph* aut);
 	void setId(unsigned int id);
 	vector<Marking*>*  getListMarq();
-	vector<InternalArc>* getListArcs();
+	//vector<InternalArc>* getListArcs();
 	vector<SCC*>* getListSCCs();
 	SCC* findSCC(Marking *state);
 	virtual ~MetaState();
@@ -27,6 +27,7 @@ public:
     ProductSCC* getSCCProductName();
     void setSCCProductName(ProductSCC* name);
     void addSyncArc(ArcSync *sync_arc);
+    uint32_t getArcCount();
 private:
 	StateGraph* m_graph;
 	ProductSCC* m_name;

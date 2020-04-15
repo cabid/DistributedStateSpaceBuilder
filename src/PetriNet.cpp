@@ -858,16 +858,17 @@ StateGraph* PetriNet::getStateGraph(Marking marquage)
 			//cout<<"\n The new  marquage="<<getMarquageName(*new_state)<<endl;
 			Marking* old_state=state_graph->addMarquage(new_state);
 			//if (old_state) cout<<"\n The found  marquage="<<getMarquageName(*old_state)<<endl;
-			InternalArc *arc=new InternalArc();
-            arc->setSource(current_elt.marquage);
+			
             //cout<<"\n The current  marquage (old)="<<getMarquageName(*current_elt.marquage)<<endl;
-            if (!old_state) arc->setDestination(new_state); else {
+            if (!old_state) current_elt.marquage->addSucc(transition,new_state); 
+            else {
                 delete new_state;
                 new_state=NULL;
-                arc->setDestination(old_state);
+                current_elt.marquage->addSucc(transition,old_state); 
+                
             }
-            arc->setTranition(transition);
-			state_graph->addArc(arc);
+            
+			
 			//cout<<"\n Ajout du noeud réusssi ="<<result;
 			//if (current_elt.liste_transitions.size()>0) pstack.push_back(current_elt);
 			// Ajouter le marquage dans la pile et ses transitions franchissables
@@ -909,10 +910,11 @@ void PetriNet::printMetaState(MetaState *ms) {
 
 void PetriNet::printMetaStateEx(MetaState *ms) {
     vector<Marking *>* list_states=ms->getListMarq();
-    vector<InternalArc> * list_arcs=ms->getListArcs();
+
     cout<<"Number of states: "<<list_states->size()<<endl;
-    cout<<"Number of arcs: "<<list_arcs->size()<<endl;
-    for (int i=0;i<list_arcs->size();i++) {
+    cout<<"Number of arcs: "<<ms->getArcCount()<<endl;
+    //for (ms->
+    /*for (int i=0;i<list_arcs->size();i++) {
         cout<<"Arc n°"<<i<<": ("<<getMarquageName(*list_arcs->at(i).getSource())<<" ===";
         cout<<list_arcs->at(i).getTransition()->getName()<<"==> ";
         cout<<getMarquageName(*list_arcs->at(i).getDestination())<<")"<<endl;
@@ -926,7 +928,7 @@ void PetriNet::printMetaStateEx(MetaState *ms) {
             cout<<getMarquageName(*lscc_states->at(j))<<" , ";
         }
         cout<<endl;
-    }
+    }*/
 }
 
 

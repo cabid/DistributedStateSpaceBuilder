@@ -41,19 +41,18 @@ public:
 	long getCountArcs();
 	long getCountNodes();
 	Automata();
-	virtual ~Automata();
-	ModularSpace* m_parent;
+	virtual ~Automata();	
 	void displayDSS();
+    static const ModularSpace* getParent();
 private:
+    static ModularSpace* m_parent;
 	void suppressDuplicates();
-
 	bool isNodeInclude(Noeud& node);
 	vector<ListMarquage*> getParents(ListMarquage* node);
 	vector<ListMarquage*> getFils(ListMarquage * node);
 	int m_code;
 	vector<ListMarquage*> m_nodes;
 	vector<Arc*> m_arcs;
-
 	vector<string> list_transition;
 };
 

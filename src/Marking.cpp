@@ -4,12 +4,12 @@
 
 
 #include "Marking.h"
-
+#include "Transition.h"
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-Marking::Marking() : m_vide(false)
+Marking::Marking() : m_vide(false),m_sccContainer(nullptr)
 {
 
 }
@@ -51,7 +51,23 @@ Marking& Marking::operator=(const Marking &newvec)
 	return *this;
 }
 
+void Marking::addSucc(Transition *t, Marking *m ) {    
+    ml_succ.push_back(pair<Transition*,Marking*>(t,m));
+}
 
+vector<pair<Transition*,Marking*>>* Marking::getListSucc() {
+    return &ml_succ;
+}
 
+SCC * Marking::getSccContainer() const {
+    return m_sccContainer;
+}
 
-
+ostream & operator<<(ostream& stream,const Marking& m) {
+    for (auto elt : m.ml_succ) {
+        Transition *t=elt.first;        
+        stream<<t->getName();
+        stream<<"\n";
+    }
+    return stream;
+}

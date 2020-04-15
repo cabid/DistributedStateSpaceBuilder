@@ -10,6 +10,10 @@
 
 #endif // _MSC_VER > 1000
 #include <vector>
+#include <iostream>
+
+class Transition;
+class SCC;
 using namespace std;
 typedef unsigned char Octet;
 typedef vector<Octet> VecCar ;
@@ -52,12 +56,18 @@ public:
 		return true;
 	}
 	void add8BitsValue(const Octet val);
+    void addSucc(Transition *,Marking *);
+    vector<pair<Transition*,Marking*>>* getListSucc();
 	Marking();
 	virtual ~Marking();
+    SCC *getSccContainer() const;
+    friend ostream & operator<<(ostream& stream, const Marking& );
 private:
 	bool m_vide;
 	VecCar m_vector;
-
+    vector<pair<Transition*,Marking*>> ml_succ;
+    SCC* m_sccContainer;
+    
 };
 
 inline void Marking::setVide(bool v)
@@ -65,6 +75,7 @@ inline void Marking::setVide(bool v)
  	m_vide=v;
  }
 
+ 
 
 
 

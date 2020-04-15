@@ -4,7 +4,7 @@ StateGraph::StateGraph()
 {
 
     m_nodes.clear();
-    m_arcs.clear();
+    
 }
 
 StateGraph::~StateGraph()
@@ -22,7 +22,10 @@ long StateGraph::getCountNodes()
 // Return arcs count
 long StateGraph::getCountArcs()
 {
-    return m_arcs.size();
+    u_int32_t res=0;
+    for(auto elt : m_nodes)
+        res+=elt->getListSucc()->size();
+    return res;
 }
 // Return true if state already exists
 Marking* StateGraph::existState(Marking *marq)
@@ -41,10 +44,10 @@ Marking* StateGraph::addMarquage(Marking *m)
     return p;
 }
 
-void StateGraph::addArc(InternalArc *arc)
+/*void StateGraph::addArc(InternalArc *arc)
 {
     m_arcs.push_back(*arc);
-}
+}*/
 
 void StateGraph::setID(int module)
 {
@@ -57,10 +60,10 @@ vector<Marking*>* StateGraph::getListMarquages()
     return &m_nodes;
 }
 
-vector<InternalArc>* StateGraph::getListArcs()
+/*vector<InternalArc>* StateGraph::getListArcs()
 {
     return &m_arcs;
-}
+}*/
 
 vector<SCC*>* StateGraph::getListSCCs()
 {
@@ -92,18 +95,17 @@ void StateGraph::strongconnect(Marking *v)
     v->onstack=true;
 
     // Consider successors of v
-    for (int i=0; i<m_arcs.size(); i++)
-    {
-        if (m_arcs.at(i).getSource()==v)
-        {
-            Marking *w=m_arcs.at(i).getDestination();
+    
+    for (auto elt : *(v->getListSucc()))
+    {       
+            Marking *w=elt.second;
             if (w->index==-1)
             {
                 strongconnect(w);
                 v->lowlink=min(v->lowlink,w->lowlink);
             }
             else if (w->onstack) v->lowlink=min(v->lowlink,w->index);
-        }
+        
     }
     // If v is a root node, pop the stack and generate an SCC
     if (v->lowlink == v->index)

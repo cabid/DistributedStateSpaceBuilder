@@ -6,10 +6,11 @@
 #define AFX_FILS_H__9BD001F3_1C4F_48A0_8CF9_FE36941F5D02__INCLUDED_
 
 #include "Marking.h"	// Added by ClassView
+#include "Transition.h"
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-#include "Transition.h"
+
 class Transition;
 class Fils
 {

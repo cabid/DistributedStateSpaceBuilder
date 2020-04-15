@@ -858,7 +858,7 @@ void CModularPetriNet::writeToFile(const string filename) {
 	myfile.open(filename);
 	myfile << "digraph " << "fichier " << "{" << endl;
 	myfile << "compound=true" << endl;
-	for (int module = 0; module < getNbModules(); module++) {
+	/*for (int module = 0; module < getNbModules(); module++) {
 		PetriNet *petri = m_modules.at(module);
 
 		for (int i = 0; i < m_dss->getMetaGraph(module)->getMetaStateCount();
@@ -904,7 +904,7 @@ void CModularPetriNet::writeToFile(const string filename) {
 			}
 		}
 	}
-	myfile << "}" << endl;
+	myfile << "}" << endl;*/
 	myfile.close();
 }
 
@@ -920,7 +920,7 @@ string CModularPetriNet::getProductSCCName(ProductSCC *pss) {
 void CModularPetriNet::writeTextFile(const string filename) {
 	std::ofstream myfile;
 	myfile.open(filename);
-
+    
 	for (int module = 0; module < getNbModules(); module++) {
 		myfile << "******** Module " << module << " ********" << endl;
 		myfile << "#Meta-states : "
@@ -929,22 +929,23 @@ void CModularPetriNet::writeTextFile(const string filename) {
 
 		for (int i = 0; i < m_dss->getMetaGraph(module)->getMetaStateCount();
 				i++) {
-
+           
 			MetaState *ms = m_dss->getMetaGraph(module)->getMetaState(i);
+                        
 			ProductSCC *pscc = ms->getSCCProductName();
 			myfile << "Metastate : " << getProductSCCName(pscc) << endl;
-
-			for (int jj = 0; jj < ms->getListArcs()->size(); jj++) {
-				Marking *source_marq = ms->getListArcs()->at(jj).getSource();
-				Marking *dest_marq =
-						ms->getListArcs()->at(jj).getDestination();
-
-				myfile << petri->getMarquageName(*source_marq) << " - "
-						<< ms->getListArcs()->at(jj).getTransition()->getName()
+			for (auto source_mark : *ms->getListMarq()) {
+				myfile<<petri->getMarquageName(*source_mark);
+                for (auto succ : *source_mark->getListSucc()) {
+                    Transition * t=succ.first;
+                    Marking *dest_marq =succ.second;
+                
+				myfile << " - "
+						<< t->getName()
 						<< " -> ";
 				myfile << petri->getMarquageName(*dest_marq) << endl;
+                }
 			}
-
 			myfile << endl;
 		}
 		// Compute #(sync arcs)

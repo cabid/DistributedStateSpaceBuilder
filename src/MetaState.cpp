@@ -29,9 +29,9 @@ vector<Marking*>*  MetaState::getListMarq() {
 	return m_graph->getListMarquages();
 }
 
-vector<InternalArc>* MetaState::getListArcs() {
+/*vector<InternalArc>* MetaState::getListArcs() {
     return m_graph->getListArcs();
-}
+}*/
 
 vector<SCC*>* MetaState::getListSCCs() {
     return m_graph->getListSCCs();
@@ -61,4 +61,7 @@ void MetaState::addSyncArc(ArcSync *sync_arc) {
 
 vector<ArcSync*> MetaState::getSucc() {
     return m_arcs;
+}
+uint32_t MetaState::getArcCount() {
+    m_graph->getCountArcs();
 }
