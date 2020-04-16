@@ -7,7 +7,7 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
 
-	char file_name[100];
+	char file_name[100]; 
 	CConstructPetriFromFile construire;
 	if (argc == 1) {
 		cout << "Name of file is not specified!" << endl;
