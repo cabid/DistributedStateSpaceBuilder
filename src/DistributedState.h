@@ -11,19 +11,19 @@
 #include "MetaGraph.h"
 class CModularPetriNet;
 class DistributedState {
-public:
-    void build();
-	MetaGraph* getMetaGraph(const int index);
-	DistributedState(CModularPetriNet* petri);
-	void setNombreModules(const int n);
-	void addMetaState(MetaState* ms, int module);
-	virtual ~DistributedState();
-	vector<Marking*>* getLocalStates(ProductSCC* productscc,const int module);
+    public:
+        void build();
+        MetaGraph* getMetaGraph ( const int index );
+        DistributedState ( CModularPetriNet* petri );
+        void setNombreModules ( const int n );
+        void addMetaState ( MetaState* ms, int module );
+        virtual ~DistributedState();
+        vector<Marking*>* getLocalStates ( ProductSCC* productscc,const int module );
 
-private:
-	CModularPetriNet* m_petri;
-	vector<MetaGraph*> ml_metagraph;
+    private:
+        CModularPetriNet* m_petri;
+        vector<MetaGraph*> ml_metagraph;
 
-};
+    };
 
 #endif /* DISTRIBUTEDSTATE_H_ */
